@@ -1,23 +1,18 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import "react-native-gesture-handler";
+import { View, Text, StatusBar } from "react-native";
+import React from "react";
+import StackNavigator from "./src/navigators/Stack/StackNavigator";
+import { NavigationContainer } from "@react-navigation/native";
 
-type props = {
-  name?: string;
-};
-export default function App({ name }: props) {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>The developer name is {name}</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1 }}>
+      <StatusBar barStyle={"light-content"} />
+      <NavigationContainer>
+        <StackNavigator />
+      </NavigationContainer>
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+export default App;
